@@ -41,7 +41,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #aaa;
+            color: white;
             transition: opacity 0.8s ease-out;
             cursor: none !important; /* Use custom cursor on loader */
         }
@@ -55,7 +55,7 @@
         #loader-text {
             position: relative;
             z-index: 101;
-            font-size: 1.125rem;
+            font-size: 30px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             animation: pulse 1.5s infinite;
@@ -249,15 +249,12 @@
         #desktop-nav-container {
             display: none;
         }
-        /* MODIFIED: Mobile CV container is now removed, so this rule is no longer needed */
-        /* #mobile-cv-container { display: block; } */
 
         @media (min-width: 1029px) {
             #desktop-nav-container {
                 display: flex;
             }
-            /* MODIFIED: Mobile CV container is now removed, so this rule is no longer needed */
-            /* #mobile-cv-container { display: none; } */
+
             #mobile-bottom-nav {
                 display: none;
             }
@@ -374,7 +371,7 @@
                     <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center tracking-tighter text-white">About Me</h2>
                     <div class="bento-card p-8 rounded-lg">
                         <p class="text-lg leading-relaxed text-gray-300">
-                            I am an undergraduate student pursuing a B.Tech in Artificial Intelligence and Data Science at Saveetha School of Engineering, passionate about solving real-world challenges with AI and data-driven technologies[cite: 4]. [cite_start]My strong foundation in machine learning, data analysis, and tools like SQL on Oracle Cloud drives me to continuously grow and contribute to the AI field.
+                            Hello! I'm Surya JK, an enthusiastic learner and passionate tech enthusiast from Chennai, currently pursuing my Bachelor's degree in Technology with a specialization in Artificial Intelligence and Data Science at Saveetha School of Engineering. My academic journey has fueled a deep interest in harnessing AI and data-driven technologies to solve real-world problems with innovative solutions. With a strong foundation in machine learning, data analysis, and AI principles, I continuously expand my skills to stay aligned with the latest advancements in the field. I have also earned certifications such as SQL on Oracle Cloud, enhancing my expertise in database management and data querying. Adaptable, curious, and dedicated to growth, I’m eager to collaborate with like-minded individuals, explore emerging technologies, and contribute to impactful projects in AI and data science. Beyond coding and algorithms, I enjoy playing cricket and relaxing with good music as a way to recharge. Let’s connect to discuss AI trends, share ideas, or bond over technology and cricket!
                         </p>
                     </div>
                     <h3 class="text-3xl md:text-4xl font-bold mt-16 mb-8 text-center tracking-tighter text-white">Core Competencies</h3>
@@ -483,15 +480,15 @@
                     <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center tracking-tighter text-white">Education</h2>
                     <div class="space-y-8">
                         <div class="bento-card p-8 rounded-lg">
-                            [cite_start]<h3 class="text-2xl font-bold text-white">B.Tech, Artificial Intelligence & Data Science [cite: 22]</h3>
-                            [cite_start]<p class="text-md text-gray-300 mt-2">Saveetha Institute of Medical and Technical Sciences (SIMATS Engineering) [cite: 22, 23]</p>
-                            [cite_start]<p class="text-md text-gray-400 mt-1">2023 - 2027 (3rd Year) [cite: 29]</p>
-                            [cite_start]<p class="mt-4 inline-block bg-gray-700 text-white text-sm font-semibold px-3 py-1 rounded-full">CGPA: 9.06 (Current) [cite: 24]</p>
+                            [cite_start]<h3 class="text-2xl font-bold text-white">B.Tech, Artificial Intelligence & Data Science</h3>
+                            [cite_start]<p class="text-md text-gray-300 mt-2">Saveetha Institute of Medical and Technical Sciences (SIMATS Engineering)</p>
+                            [cite_start]<p class="text-md text-gray-400 mt-1">2023 - 2027 (3rd Year)</p>
+                            [cite_start]<p class="mt-4 inline-block bg-gray-700 text-white text-sm font-semibold px-3 py-1 rounded-full">CGPA: 9.06 (Current)</p>
                         </div>
                         <div class="bento-card p-8 rounded-lg">
-                            [cite_start]<h3 class="text-2xl font-bold text-white">Oracle Database SQL Specialist [cite: 26]</h3>
-                            [cite_start]<p class="text-md text-gray-300 mt-2">Oracle [cite: 26]</p>
-                            [cite_start]<p class="text-md text-gray-400 mt-1">Professional Certification [cite: 25]</p>
+                            [cite_start]<h3 class="text-2xl font-bold text-white">Oracle Database SQL Specialist</h3>
+                            [cite_start]<p class="text-md text-gray-300 mt-2">Oracle </p>
+                            [cite_start]<p class="text-md text-gray-400 mt-1">Professional Certification</p>
                         </div>
                     </div>
                 </div>
@@ -507,9 +504,9 @@
                                 <img src="jarvis.png" alt="Virtual Assistant Project" class="project-image">
                             </div>
                             <div class="flex flex-col flex-grow">
-                                [cite_start]<h3 class="text-xl font-bold text-white">Virtual Assistant using Python [cite: 11]</h3>
-                                [cite_start]<p class="mt-2 text-gray-400 flex-grow">Developed an intelligent virtual assistant that understands voice commands, fetches real-time data using APIs, and responds with synthesized speech[cite: 14, 15].<b>CLICK TO VIEW THE IMAGE</b></p>
-                                [cite_start]<p class="mt-4 text-sm font-semibold text-gray-500">Tech: Python, APIs, Speech Recognition, Text-to-Speech [cite: 13]</p>
+                                <h3 class="text-xl font-bold text-white">Virtual Assistant using Python</h3>
+                                <p class="mt-2 text-gray-400 flex-grow">Developed an intelligent virtual assistant that understands voice commands, fetches real-time data using APIs, and responds with synthesized speech.<b> CLICK TO VIEW THE IMAGE</b></p>
+                                <p class="mt-4 text-sm font-semibold text-gray-500">Tech: Python, APIs, Speech Recognition, Text-to-Speech</p>
                                 <a href="https://github.com/Surya-JK/virtual-assistant" target="_blank" rel="noopener noreferrer" class="secondary-button mt-6 self-start font-semibold text-sm py-2 px-5 rounded-md text-center">View on GitHub</a>
                             </div>
                         </div>
@@ -519,22 +516,22 @@
                                 <img src="weather.png" alt="Weather Monitoring Project" class="project-image">
                             </div>
                              <div class="flex flex-col flex-grow">
-                                [cite_start]<h3 class="text-xl font-bold text-white">Weather Monitoring System using Python [cite: 16]</h3>
-                                [cite_start]<p class="mt-2 text-gray-400 flex-grow">Built a desktop app that displays real-time temperature, humidity, and atmospheric pressure by integrating the OpenWeatherMap API[cite: 18].<b>CLICK TO VIEW THE IMAGE</b></p>
-                                [cite_start]<p class="mt-4 text-sm font-semibold text-gray-500">Tech: Python, OpenWeatherMap API, JSON, Tkinter [cite: 17]</p>
+                                <h3 class="text-xl font-bold text-white">Weather Monitoring System using Python</h3>
+                                <p class="mt-2 text-gray-400 flex-grow">Built a desktop app that displays real-time temperature, humidity, and atmospheric pressure by integrating the OpenWeatherMap API.<b> CLICK TO VIEW THE IMAGE</b></p>
+                                <p class="mt-4 text-sm font-semibold text-gray-500">Tech: Python, OpenWeatherMap API, JSON, Tkinter</p>
                                 <a href="https://github.com/Surya-JK/Weather-Monitoring-System" target="_blank" rel="noopener noreferrer" class="secondary-button mt-6 self-start font-semibold text-sm py-2 px-5 rounded-md text-center">View on GitHub</a>
                             </div>
                         </div>
                         
                         <div class="bento-card p-6 rounded-xl flex flex-col cursor-pointer project-card">
                              <div class="project-image-container">
-                                <img src="https://placehold.co/800x450/1a1a1a/ffffff?text=Portfolio+Site" alt="Portfolio Project" class="project-image">
+                                <img src="#" alt="Portfolio Project" class="project-image">
                             </div>
                             <div class="flex flex-col flex-grow">
                                 <h3 class="text-xl font-bold text-white">Interactive Portfolios</h3>
-                                <p class="mt-2 text-gray-400 flex-grow">Engineered multiple immersive portfolio SPAs, integrating real-time 3D models with three.js, dynamic backgrounds, and various modern UI designs.<b>CLICK TO VIEW THE IMAGE</b></p>
+                                <p class="mt-2 text-gray-400 flex-grow">Engineered multiple immersive portfolio SPAs, integrating real-time 3D models with three.js, dynamic backgrounds, and various modern UI designs.<b> CLICK TO VIEW THE IMAGE</b></p>
                                 <p class="mt-4 text-sm font-semibold text-gray-500">Tech: HTML5, Tailwind CSS, JavaScript, React.js</p>
-                                <a href="#" class="secondary-button mt-6 self-start font-semibold text-sm py-2 px-5 rounded-md text-center">View on Github</a>
+                                <a href="https://github.com/Surya-JK/My-Portfolio" class="secondary-button mt-6 self-start font-semibold text-sm py-2 px-5 rounded-md text-center">View on Github</a>
                             </div>
                         </div>
 
@@ -544,7 +541,7 @@
                             </div>
                              <div class="flex flex-col flex-grow">
                                 <h3 class="text-xl font-bold text-white">Youtube Clone Home Page Interface</h3>
-                                <p class="mt-2 text-gray-400 flex-grow">A YouTube homepage clone using HTML and CSS to replicate complex user interfaces and manage layout using modern web technologies.<b>CLICK TO VIEW THE IMAGE</b></p>
+                                <p class="mt-2 text-gray-400 flex-grow">A YouTube homepage clone using HTML and CSS to replicate complex user interfaces and manage layout using modern web technologies.<b> CLICK TO VIEW THE IMAGE</b></p>
                                 <p class="mt-4 text-sm font-semibold text-gray-500">Tech: HTML5, CSS</p>
                                 <a href="https://github.com/Surya-JK/Youtube-Clone-Interface-with-HTML-and-CSS"  rel="noopener noreferrer" class="secondary-button mt-6 self-start font-semibold text-sm py-2 px-5 rounded-md text-center">View on GitHub</a>
                             </div>
@@ -555,7 +552,7 @@
                             </div>
                              <div class="flex flex-col flex-grow">
                                 <h3 class="text-xl font-bold text-white">Starbucks Home Page Clone</h3>
-                                <p class="mt-2 text-gray-400 flex-grow">Starbucks homepage clone using HTML, CSS, and Bootstrap 5. This project was part of my ongoing effort to improve my front-end development skills and better understand how real-world websites are structured and styled.<b>CLICK TO VIEW THE IMAGE</b></p>
+                                <p class="mt-2 text-gray-400 flex-grow">Starbucks homepage clone using HTML, CSS, and Bootstrap 5. This project was part of my ongoing effort to improve my front-end development skills and better understand how real-world websites are structured and styled.<b> CLICK TO VIEW THE IMAGE</b></p>
                                 <p class="mt-4 text-sm font-semibold text-gray-500">Tech: HTML5, CSS, Bootstrap</p>
                                 <a href="https://github.com/Surya-JK/Starbucks-Clone" target="_blank" rel="noopener noreferrer" class="secondary-button mt-6 self-start font-semibold text-sm py-2 px-5 rounded-md text-center">View on GitHub</a>
                             </div>
@@ -569,21 +566,21 @@
                     <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center tracking-tighter text-white">Achievements</h2>
                     <div class="space-y-8">
                         <div class="bento-card p-8 rounded-lg">
-                            [cite_start]<h3 class="text-2xl font-bold text-white">NSO (National Science Olympiad) Gold Medal [cite: 30]</h3>
+                            <h3 class="text-2xl font-bold text-white">NSO (National Science Olympiad) Gold Medal</h3>
                             <p class="text-md text-gray-300 mt-2">Awarded for exceptional performance in the National Science Olympiad.</p>
                         </div>
                         <div class="bento-card p-8 rounded-lg">
-                            [cite_start]<h3 class="text-2xl font-bold text-white">Top 10 Finalist - Hackforge 25 [cite: 31]</h3>
-                            [cite_start]<p class="text-md text-gray-300 mt-2">Achieved a top 10 position in the competitive Hackforge 25 hackathon[cite: 31].</p>
+                            <h3 class="text-2xl font-bold text-white">Top 10 Finalist - Hackforge 25</h3>
+                            <p class="text-md text-gray-300 mt-2">Achieved a top 10 position in the competitive Hackforge 25 hackathon.</p>
                         </div>
                         <div class="bento-card p-8 rounded-lg">
-                            [cite_start]<h3 class="text-2xl font-bold text-white">Best Student Award - 2025 [cite: 32]</h3>
-                            [cite_start]<p class="text-md text-gray-300 mt-2">Recognized by the Tamil Thai Foundations for outstanding academic and extracurricular excellence[cite: 32].</p>
+                            <h3 class="text-2xl font-bold text-white">Best Student Award - 2025</h3>
+                            <p class="text-md text-gray-300 mt-2">Recognized by the Tamil Thai Foundations for outstanding academic and extracurricular excellence.</p>
                         </div>
                     </div>
                     <h3 class="text-3xl md:text-4xl font-bold mt-16 mb-8 text-center tracking-tighter text-white">Languages</h3>
                     <div class="bento-card p-8 rounded-lg text-center">
-                        [cite_start]<p class="text-lg text-gray-300">Tamil & English [cite: 28]</p>
+                        <p class="text-lg text-gray-300">Tamil & English</p>
                     </div>
                 </div>
             </section>
@@ -1071,4 +1068,3 @@
     </script>
 </body>
 </html>
-
