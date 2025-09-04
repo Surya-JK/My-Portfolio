@@ -245,16 +245,22 @@
             transform: translateY(0);
         }
 
+        /* --- MODIFIED VISIBILITY STYLES --- */
         /* Default Mobile Styles */
         #desktop-nav-container {
             display: none;
+        }
+        #mobile-cv-header-link {
+            display: block;
         }
 
         @media (min-width: 1029px) {
             #desktop-nav-container {
                 display: flex;
             }
-
+            #mobile-cv-header-link {
+                display: none;
+            }
             #mobile-bottom-nav {
                 display: none;
             }
@@ -336,6 +342,7 @@
         <header class="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-md border-b border-gray-800">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
                 <a href="#home" class="text-2xl font-bold tracking-tighter" onclick="event.preventDefault(); showPage('home')">SJK</a>
+                
                 <div id="desktop-nav-container" class="items-center">
                     <nav class="flex space-x-8 text-gray-400">
                         <a href="#home" class="nav-link active" onclick="event.preventDefault(); showPage('home')">Home</a>
@@ -346,6 +353,10 @@
                         <a href="#contact" class="nav-link" onclick="event.preventDefault(); showPage('contact')">Contact</a>
                         <a href="#cv" class="nav-link" onclick="event.preventDefault(); showPage('cv')">View CV</a>
                     </nav>
+                </div>
+
+                <div id="mobile-cv-header-link">
+                    <a href="#cv" onclick="event.preventDefault(); showPage('cv')" class="secondary-button text-sm font-semibold py-2 px-4 rounded-md">View CV</a>
                 </div>
             </div>
         </header>
@@ -480,15 +491,15 @@
                     <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center tracking-tighter text-white">Education</h2>
                     <div class="space-y-8">
                         <div class="bento-card p-8 rounded-lg">
-                            [cite_start]<h3 class="text-2xl font-bold text-white">B.Tech, Artificial Intelligence & Data Science</h3>
-                            [cite_start]<p class="text-md text-gray-300 mt-2">Saveetha Institute of Medical and Technical Sciences (SIMATS Engineering)</p>
-                            [cite_start]<p class="text-md text-gray-400 mt-1">2023 - 2027 (3rd Year)</p>
-                            [cite_start]<p class="mt-4 inline-block bg-gray-700 text-white text-sm font-semibold px-3 py-1 rounded-full">CGPA: 9.06 (Current)</p>
+                            <h3 class="text-2xl font-bold text-white">B.Tech, Artificial Intelligence & Data Science</h3>
+                            <p class="text-md text-gray-300 mt-2">Saveetha Institute of Medical and Technical Sciences (SIMATS Engineering)</p>
+                            <p class="text-md text-gray-400 mt-1">2023 - 2027 (3rd Year)</p>
+                            <p class="mt-4 inline-block bg-gray-700 text-white text-sm font-semibold px-3 py-1 rounded-full">CGPA: 9.06 (Current)</p>
                         </div>
                         <div class="bento-card p-8 rounded-lg">
-                            [cite_start]<h3 class="text-2xl font-bold text-white">Oracle Database SQL Specialist</h3>
-                            [cite_start]<p class="text-md text-gray-300 mt-2">Oracle </p>
-                            [cite_start]<p class="text-md text-gray-400 mt-1">Professional Certification</p>
+                            <h3 class="text-2xl font-bold text-white">Oracle Database SQL Specialist</h3>
+                            <p class="text-md text-gray-300 mt-2">Oracle </p>
+                            <p class="text-md text-gray-400 mt-1">Professional Certification</p>
                         </div>
                     </div>
                 </div>
@@ -616,7 +627,7 @@
 
             <section id="cv" class="page hidden">
                 <div class="max-w-4xl mx-auto py-16 text-center">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center tracking-tighter text-white">Download CV</h2>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center tracking-tighter text-white">My CV</h2>
                     <a href="Surya JK Resume.pdf" download="Surya_JK_Resume.pdf" class="mb-8 inline-block primary-button font-semibold py-3 px-10 rounded-md">
                         Download PDF
                     </a>
@@ -648,10 +659,7 @@
         <a href="#contact" class="mobile-nav-link p-2 text-gray-400" onclick="event.preventDefault(); showPage('contact')">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
         </a>
-        <a href="#cv" class="mobile-nav-link p-2 text-gray-400" onclick="event.preventDefault(); showPage('cv')">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-        </a>
-    </nav>
+        </nav>
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
     
@@ -1067,4 +1075,4 @@
         });
     </script>
 </body>
-</html>
+</html> 
