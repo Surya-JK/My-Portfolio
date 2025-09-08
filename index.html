@@ -320,7 +320,6 @@
             }
         }
 
-        /* --- NEW: Fullscreen Popup Styles --- */
         .fullscreen-popup {
             position: fixed;
             background-color: rgba(255, 255, 255, 0.9);
@@ -335,7 +334,6 @@
             visibility: hidden;
         }
 
-        /* Default (Mobile) styles */
         .fullscreen-popup {
             top: 20px;
             left: 50%;
@@ -698,7 +696,7 @@
     <div class="cursor-outline"></div>
     
     <div id="fullscreen-popup" class="fullscreen-popup">
-        Double click for full screen
+        Double Tap for full screen
     </div>
 
     <script>
@@ -734,7 +732,6 @@
         // Add double-click listener to re-enter fullscreen
         document.addEventListener('dblclick', function() {
             const loader = document.getElementById('loader');
-            // Only allow re-entering fullscreen after the initial load is complete
             if (loader.style.display === 'none') {
                 enterFullScreen();
             }
@@ -791,7 +788,6 @@
                 window.addEventListener('resize', onLoaderResize, false);
             }
 
-            // A gentle animation for the pre-click loading screen
             function animateLoaderWaiting() {
                 loaderAnimationId = requestAnimationFrame(animateLoaderWaiting);
                 if (loaderModel) {
@@ -843,11 +839,15 @@
                     loader.style.display = 'none';
                     document.body.style.overflow = '';
                     
-                    initPortfolio3D();
-                    animatePortfolio3D();
-                    
-                    initSideCubes();
-                    animateSideCubes();
+                    if (window.innerWidth >= 1029) {
+                        
+                        initSideCubes();
+                        animateSideCubes();
+                    } else {
+
+                        initPortfolio3D();
+                        animatePortfolio3D();
+                    }
 
                     window.addEventListener('resize', initStreams); initStreams(); animateStreams();
                     
@@ -855,8 +855,11 @@
                     
                     requestAnimationFrame(() => {
                         portfolioContent.style.opacity = '1';
-                        document.getElementById('left-cube-container').style.opacity = '0.5';
-                        document.getElementById('right-cube-container').style.opacity = '0.5';
+                        // Only show the side cube containers if on desktop.
+                        if (window.innerWidth >= 1029) {
+                            document.getElementById('left-cube-container').style.opacity = '0.5';
+                            document.getElementById('right-cube-container').style.opacity = '0.5';
+                        }
                         currentActivePage.classList.add('page-entering');
                     });
                     
@@ -946,7 +949,7 @@
             animateLoaderWaiting();
 
             loader.addEventListener('click', () => {
-               
+                
                 cancelAnimationFrame(loaderAnimationId);
 
                 enterFullScreen();
@@ -956,7 +959,7 @@
                 
                 requestAnimationFrame(animateLoaderTransition);
 
-            }, { once: true }); // The event will only fire once
+            }, { once: true }); 
         });
     </script>
 
@@ -1027,12 +1030,13 @@
         }
         
         window.addEventListener('DOMContentLoaded', () => {
+            
             const loaderText = document.getElementById('loader-text');
             // Check for touch support OR a narrow screen to identify mobile devices
             if (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 1029)) {
                 loaderText.textContent = 'Tap to Enter';
             }
-            
+
             updateNavLinks('home');
             
             const projectCards = document.querySelectorAll('.project-card');
