@@ -319,6 +319,46 @@
                 cursor: auto !important; 
             }
         }
+
+        /* --- NEW: Fullscreen Popup Styles --- */
+        .fullscreen-popup {
+            position: fixed;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 8px;
+            z-index: 10001;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.5s ease-in-out;
+            visibility: hidden;
+        }
+
+        /* Default (Mobile) styles */
+        .fullscreen-popup {
+            top: 20px;
+            left: 50%;
+            transform: translate(-50%, -150%); /* Start above the screen */
+        }
+        .fullscreen-popup.show {
+            visibility: visible;
+            transform: translate(-50%, 0); /* Slide in from top */
+        }
+
+        /* Desktop styles */
+        @media (min-width: 1029px) {
+            .fullscreen-popup {
+                top: 50%;
+                left: auto;
+                right: 20px;
+                transform: translate(150%, -50%); /* Start to the right */
+            }
+            .fullscreen-popup.show {
+                visibility: visible;
+                transform: translate(0, -50%); /* Slide in from right */
+            }
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -657,6 +697,10 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
     
+    <div id="fullscreen-popup" class="fullscreen-popup">
+        Double click for full screen
+    </div>
+
     <script>
         // --- Flowing Streams Background ---
         const streamsCanvas = document.getElementById('streams-canvas');
@@ -895,22 +939,18 @@
                 }
             }
             
-            // --- Start Logic ---
             const loader = document.getElementById('loader');
             const loaderText = document.getElementById('loader-text');
 
-            // Initialize the loader and start its waiting animation
             initLoader3D();
             animateLoaderWaiting();
 
             loader.addEventListener('click', () => {
-                // Stop the waiting animation
+               
                 cancelAnimationFrame(loaderAnimationId);
 
-                // Request fullscreen (now uses the global function)
                 enterFullScreen();
                 
-                // Update text and start the main transition animation
                 loaderText.textContent = "Initializing";
                 loaderText.style.animation = "pulse 1s infinite"; // Optional: faster pulse
                 
@@ -987,15 +1027,12 @@
         }
         
         window.addEventListener('DOMContentLoaded', () => {
-            // --- START: Added code for loader text ---
             const loaderText = document.getElementById('loader-text');
             // Check for touch support OR a narrow screen to identify mobile devices
             if (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 1029)) {
                 loaderText.textContent = 'Tap to Enter';
             }
-            // --- END: Added code for loader text ---
             
-            // Set initial active nav link for the home page
             updateNavLinks('home');
             
             const projectCards = document.querySelectorAll('.project-card');
@@ -1076,6 +1113,36 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('fullscreen-popup');
+            let wasInFullScreen = false; 
+            let popupTimeout; 
+
+            function handleFullScreenChange() {
+                const isFullScreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+
+                if (isFullScreen) {
+                    wasInFullScreen = true; 
+                } else if (wasInFullScreen) {
+                    clearTimeout(popupTimeout);
+
+                    popup.classList.add('show');
+
+                    popupTimeout = setTimeout(() => {
+                        popup.classList.remove('show');
+                    }, 4000); // Hide the popup after 4 seconds
+
+                    wasInFullScreen = false; // Reset the flag
+                }
+            }
+
+            document.addEventListener('fullscreenchange', handleFullScreenChange);
+            document.addEventListener('webkitfullscreenchange', handleFullScreenChange);
+            document.addEventListener('mozfullscreenchange', handleFullScreenChange);
+            document.addEventListener('MSFullscreenChange', handleFullScreenChange);
+        });
+    </script>
 </body>
 </html>
-
