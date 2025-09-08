@@ -374,7 +374,9 @@
 
         <header class="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-md border-b border-gray-800">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-                <a href="#home" class="text-2xl font-bold tracking-tighter" onclick="event.preventDefault(); showPage('home')">SJK</a>
+                <a href="#home" onclick="event.preventDefault(); showPage('home')">
+                    <img src="images/S.png" alt="SJK Logo" class="h-9 transition-transform duration-300 hover:scale-110">
+                </a>
                 
                 <div id="desktop-nav-container" class="items-center">
                     <nav class="flex space-x-8 text-gray-400">
@@ -450,7 +452,7 @@
                                     <div class="skill-bar bg-gradient-to-r from-green-400 to-teal-500 h-2 rounded-full" data-width="75%"></div>
                                 </div>
                             </div>
-                             <div>
+                            <div>
                                 <div class="flex justify-between items-center mb-1">
                                     <h5 class="font-semibold text-gray-300">HTML, CSS, JavaScript</h5>
                                     <span class="text-sm font-medium text-gray-400">80%</span>
@@ -902,7 +904,6 @@
                 rightCube.position.x = 1.5;
                 rightScene.add(rightCube);
                 rightCamera.position.z = 5;
-                
                 window.addEventListener('resize', onSideCubesResize, false);
             }
 
