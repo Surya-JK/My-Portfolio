@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surya JK - AI & Data Science Portfolio</title>
-    <link rel="icon" href="S.png">
+    <link rel="icon" href="images/S.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,6 @@
     }
     </script>
     <style>
-        
-        /* FIX: Prevents layout shift from scrollbar appearing/disappearing */
         html {
             overflow-y: scroll;
         }
@@ -83,11 +81,10 @@
             border-radius: 9999px;
             z-index: 1;
         }
-        .nav-link:hover {
+        /* For Desktop Nav: Group hover and active states */
+        .nav-link:hover,
+        .nav-link.active {
             color: #FFFFFF;
-        }
-        .nav-link.active{
-            color: white;
         }
         .nav-link::before {
             content: '';
@@ -98,9 +95,7 @@
             border-radius: 9999px;
             transition: border-color 0.3s ease-out;
         }
-        .nav-link:hover::before {
-           border-color: white;
-        }
+        .nav-link:hover::before,
         .nav-link.active::before {
             border-color: white;
         }
@@ -110,10 +105,8 @@
             position: relative;
         }
 
-        .mobile-nav-link:hover{
-            color: white;
-        }
-
+        /* For Mobile Nav: Group hover and active states */
+        .mobile-nav-link:hover,
         .mobile-nav-link.active {
             color: white;
         }
@@ -130,6 +123,8 @@
             border-radius: 50%;
             transition: transform 0.3s ease-out;
         }
+        /* Makes the dot appear on hover as well as active */
+        .mobile-nav-link:hover::after,
         .mobile-nav-link.active::after {
             transform: translateX(-50%) scale(1);
         }
@@ -367,7 +362,7 @@
                 <div id="3d-container" class="absolute inset-0 z-0 opacity-20"></div>
                 <div class="z-10 relative flex flex-col items-center w-full">
                     <div class="profile-image-container mb-8">
-                        <img src="profile.jpg" alt="Surya JK Profile Photo" class="profile-image">
+                        <img src="images/profile.jpg" alt="Surya JK Profile Photo" class="profile-image">
                     </div>
                     <h1 class="text-6xl md:text-8xl font-bold tracking-tighter text-white">Surya JK</h1>
                     <p class="mt-4 text-xl md:text-2xl text-gray-400">AI Engineer & Data Scientist</p>
@@ -512,7 +507,7 @@
                         
                         <div class="bento-card p-6 rounded-xl flex flex-col cursor-pointer project-card">
                             <div class="project-image-container">
-                                <img src="jarvis.png" alt="Virtual Assistant Project" class="project-image">
+                                <img src="images/jarvis.png" alt="Virtual Assistant Project" class="project-image">
                             </div>
                             <div class="flex flex-col flex-grow">
                                 <h3 class="text-xl font-bold text-white">Virtual Assistant using Python</h3>
@@ -524,7 +519,7 @@
                         
                         <div class="bento-card p-6 rounded-xl flex flex-col cursor-pointer project-card">
                             <div class="project-image-container">
-                                <img src="weather.png" alt="Weather Monitoring Project" class="project-image">
+                                <img src="images/weather.png" alt="Weather Monitoring Project" class="project-image">
                             </div>
                              <div class="flex flex-col flex-grow">
                                 <h3 class="text-xl font-bold text-white">Weather Monitoring System using Python</h3>
@@ -542,24 +537,24 @@
                                 <h3 class="text-xl font-bold text-white">Interactive Portfolios</h3>
                                 <p class="mt-2 text-gray-400 flex-grow">Engineered multiple immersive portfolio SPAs, integrating real-time 3D models with three.js, dynamic backgrounds, and various modern UI designs.<b> CLICK TO VIEW THE IMAGE</b></p>
                                 <p class="mt-4 text-sm font-semibold text-gray-500">Tech: HTML5, Tailwind CSS, JavaScript, React.js</p>
-                                <a href="https://github.com/Surya-JK/My-Portfolio" class="secondary-button mt-6 self-start font-semibold text-sm py-2 px-5 rounded-md text-center">View on Github</a>
+                                <a href="https://github.com/Surya-JK/My-Portfolio" target="_blank" class="secondary-button mt-6 self-start font-semibold text-sm py-2 px-5 rounded-md text-center">View on Github</a>
                             </div>
                         </div>
 
                         <div class="bento-card p-6 rounded-xl flex flex-col cursor-pointer project-card">
                              <div class="project-image-container">
-                                <img src="youtube.png" alt="Youtube Clone Project" class="project-image">
+                                <img src="images/youtube.png" alt="Youtube Clone Project" class="project-image">
                             </div>
                              <div class="flex flex-col flex-grow">
                                 <h3 class="text-xl font-bold text-white">Youtube Clone Home Page Interface</h3>
                                 <p class="mt-2 text-gray-400 flex-grow">A YouTube homepage clone using HTML and CSS to replicate complex user interfaces and manage layout using modern web technologies.<b> CLICK TO VIEW THE IMAGE</b></p>
                                 <p class="mt-4 text-sm font-semibold text-gray-500">Tech: HTML5, CSS</p>
-                                <a href="https://github.com/Surya-JK/Youtube-Clone-Interface-with-HTML-and-CSS"  rel="noopener noreferrer" class="secondary-button mt-6 self-start font-semibold text-sm py-2 px-5 rounded-md text-center">View on GitHub</a>
+                                <a href="https://github.com/Surya-JK/Youtube-Clone-Interface-with-HTML-and-CSS" target="_blank"  rel="noopener noreferrer" class="secondary-button mt-6 self-start font-semibold text-sm py-2 px-5 rounded-md text-center">View on GitHub</a>
                             </div>
                         </div>
                         <div class="bento-card p-6 rounded-xl flex flex-col cursor-pointer project-card">
                             <div class="project-image-container">
-                                <img src="Starbucks Clone (1).png" alt="Starbucks Clone Project" class="project-image">
+                                <img src="images/Starbucks Clone (1).png" alt="Starbucks Clone Project" class="project-image">
                             </div>
                              <div class="flex flex-col flex-grow">
                                 <h3 class="text-xl font-bold text-white">Starbucks Home Page Clone</h3>
@@ -632,11 +627,10 @@
                         Download PDF
                     </a>
                     <div class="mt-8">
-                        <img src="Surya JK Resume_page-0001.jpg" class="w-50px h-50px rounded-lg border border-gray-700"></img>
+                        <img src="images/Surya JK Resume_page-0001.jpg"/>
                     </div>
                 </div>
             </section>
-
         </main>
     </div>
     
@@ -993,6 +987,14 @@
         }
         
         window.addEventListener('DOMContentLoaded', () => {
+            // --- START: Added code for loader text ---
+            const loaderText = document.getElementById('loader-text');
+            // Check for touch support OR a narrow screen to identify mobile devices
+            if (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 1029)) {
+                loaderText.textContent = 'Tap to Enter';
+            }
+            // --- END: Added code for loader text ---
+            
             // Set initial active nav link for the home page
             updateNavLinks('home');
             
@@ -1075,4 +1077,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
