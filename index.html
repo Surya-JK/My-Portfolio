@@ -204,10 +204,59 @@ h1.hname span{display:block;background:linear-gradient(135deg,var(--acc),var(--a
 .cv-bul::before{content:'—';position:absolute;left:0;color:var(--acc);font-size:11px;}
 .cv-tags{display:flex;flex-wrap:wrap;gap:8px;}
 .cv-tag{font-family:var(--mono);font-size:11px;padding:4px 12px;border-radius:100px;background:rgba(125,249,170,.06);border:1px solid rgba(125,249,170,.12);color:var(--acc);}
+/* FULLSCREEN TOAST */
+.fs-toast {
+  position: fixed;
+  top: 80px; 
+  right: -350px; /* Hidden off-screen by default */
+  background: var(--surf);
+  border: 1px solid var(--acc);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  z-index: 9999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: right 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none; 
+}
+.fs-toast.show {
+  right: 20px; /* Slides into view */
+}
+/* ── CUSTOM HOVER SCROLLBAR ── */
+/* Firefox fallback (Firefox doesn't support hover states for scrollbars yet) */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(125, 249, 170, 0.2) transparent; 
+}
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar/hover area */
+  background: transparent; /* Keeps the track invisible */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent; /* Invisible by default */
+  border-radius: 10px;
+  border: 2px solid var(--bg); 
+}
+::-webkit-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: var(--acc); /* Lights up in your neon green */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #4de885; /* Slightly brighter green when dragging */
+}
 </style>
 </head>
 <body>
-
+<div id="fs-toast" class="fs-toast">Double-Tap anywhere to re-enter full screen</div>
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="curRing"></div>
 
@@ -782,6 +831,64 @@ window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => { document.getElementById('ldBar').style.width = '100%'; }, 80);
 
   document.getElementById('loader').addEventListener('click', () => {
+    document.getElementById('loader').classList.add('gone');
+    document.getElementById('topnav').style.display = 'flex';
+    document.getElementById('mobnav').style.display = 'flex';
+
+    const app = document.getElementById('app');
+    setTimeout(() => {
+      document.getElementById('home').classList.add('active');
+      app.classList.add('vis');
+    }, 60);
+  }, { once: true });
+});
+/* ── FULLSCREEN TOAST LOGIC ── */
+const fsToast = document.getElementById('fs-toast');
+let toastTimeout;
+
+function showToast() {
+  fsToast.classList.add('show');
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    fsToast.classList.remove('show');
+  }, 4000); // Shows for 4 seconds
+}
+
+// Allow user to re-enter fullscreen by double clicking
+document.addEventListener('dblclick', () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(e => console.log(e));
+  }
+});
+
+// Detect when user exits fullscreen (like pressing Esc)
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) {
+    // They just exited full screen, show the message
+    showToast();
+  }
+});
+
+/* ── LOADER (UPDATED WITH AUTO-FULLSCREEN) ── */
+window.addEventListener('DOMContentLoaded', () => {
+  const hint = document.getElementById('ldHint');
+  hint.textContent = window.matchMedia('(pointer: coarse)').matches ? 'Tap to enter' : 'Click to enter';
+
+  // Animate bar
+  setTimeout(() => { document.getElementById('ldBar').style.width = '100%'; }, 80);
+
+  document.getElementById('loader').addEventListener('click', async () => {
+    
+    // 1. TRIGGER FULLSCREEN ON THIS CLICK
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      }
+    } catch (err) {
+      console.log(`Fullscreen blocked by browser: ${err.message}`);
+    }
+
+    // 2. CONTINUE WITH NORMAL SITE REVEAL
     document.getElementById('loader').classList.add('gone');
     document.getElementById('topnav').style.display = 'flex';
     document.getElementById('mobnav').style.display = 'flex';
